@@ -14,13 +14,11 @@ const CoinPage = () => {
 
   const { currency, symbol } = CryptoState();
 
-  const fetchCoin = async () => {
-    const { data } = await axios.get(SingleCoin(id));
-
-    setCoin(data);
-  };
-
   useEffect(() => {
+    async function fetchCoin (){
+      const { data } = await axios.get(SingleCoin(id));
+      setCoin(data);
+    };
     fetchCoin();
   }, []);
 

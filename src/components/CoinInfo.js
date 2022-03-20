@@ -38,15 +38,14 @@ const CoinInfo = ({ coin }) => {
 
   const classes = useStyles();
 
-  const fetchHistoricData = async () => {
-    const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
-    setflag(true);
-    setHistoricData(data.prices);
-  };
-
   useEffect(() => {
+    //fetchHistoricData
+    async function fetchHistoricData (){
+      const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
+      setflag(true);
+      setHistoricData(data.prices);
+    };
     fetchHistoricData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [days]);
 
   const darkTheme = createTheme({

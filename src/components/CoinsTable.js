@@ -61,15 +61,16 @@ export default function CoinsTable() {
     },
   });
 
-  const fetchCoins = async () => {
-    setLoading(true);
-    const { data } = await axios.get(CoinList(currency));
-
-    setCoins(data);
-    setLoading(false);
-  };
 
   useEffect(() => {
+    // fetchCoins
+    async function fetchCoins () {
+      setLoading(true)
+      const { data } = await axios.get(CoinList(currency));
+  
+      setCoins(data);
+      setLoading(false);
+    };
     fetchCoins();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency]);

@@ -11,14 +11,14 @@ const Carousel = () => {
   const [trending, setTrending] = useState([]);
   const { currency, symbol } = CryptoState();
 
-  const fetchTrendingCoins = async () => {
-    const { data } = await axios.get(TrendingCoins(currency));
-    setTrending(data);
-  };
 
   useEffect(() => {
+    // fetchTrendingCoins();
+    async function fetchTrendingCoins(){
+      const { data } = await axios.get(TrendingCoins(currency));
+      setTrending(data);
+    };
     fetchTrendingCoins();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency]);
 
   const useStyles = makeStyles((theme) => ({
