@@ -11,10 +11,9 @@ import {
   makeStyles,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
-import MuiAlert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles((theme) => ({
   title: {
